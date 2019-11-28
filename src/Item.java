@@ -10,7 +10,7 @@ public class Item {
     private SimpleIntegerProperty units;
     private SimpleDoubleProperty discount;
     private SimpleDoubleProperty total;
-    private SimpleDoubleProperty tax;
+    //private SimpleDoubleProperty tax;
 
 
     Item(String n,int ic,String B,double p,int u,double d,double t){
@@ -73,17 +73,13 @@ public class Item {
         subTotal = ((price.get()*units.get())-computeDiscount());
         return  subTotal;
     }
-    public double computeTax() {
-        return computeSubTotal()*8.25/100;
-    }
 
     public double computeDiscount() {
         return (price.get()*discount.get())*units.get();
     }
     public double computeTotalPrice(){
         double TotalPrice;
-        double tax = computeTax();
-        TotalPrice = computeSubTotal()-computeDiscount()+tax;
+        TotalPrice = computeSubTotal()-computeDiscount();
         return TotalPrice;
     }
 

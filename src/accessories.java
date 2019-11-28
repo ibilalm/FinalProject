@@ -3,16 +3,17 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class accessories extends Item {
-    private SimpleIntegerProperty itemcode;
+    /*private SimpleIntegerProperty itemcode;
     private SimpleStringProperty name;
     private SimpleStringProperty brand;
     private SimpleDoubleProperty price;
     private SimpleIntegerProperty units;
-    private SimpleDoubleProperty discount;
+    private SimpleDoubleProperty discount;*/
     private SimpleDoubleProperty tax;
-    public accessories(String n,int ic,String B,double p,int u,double d,double t){ //Constructor
+    public accessories(String n,int ic,String B,double p,int u,double d,double t, double tx){ //Constructor
         super(n,ic,B,p,u,d,t);
-        itemcode=new SimpleIntegerProperty(ic);
+        tax = new SimpleDoubleProperty(tx);
+        /*itemcode=new SimpleIntegerProperty(ic);
         name=new SimpleStringProperty(n);
         brand = new SimpleStringProperty(B);
         price = new SimpleDoubleProperty(p);
@@ -54,7 +55,10 @@ public class accessories extends Item {
         units.set(u);
     }
     public void setDiscount(double d){
-        discount.set(d);
+        discount.set(d);*/
+    }
+    public double computeTax() {
+        return computeSubTotal()*8.25/100;
     }
 
 }

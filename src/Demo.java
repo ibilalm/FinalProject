@@ -157,12 +157,18 @@ public class Demo extends Application {
                 int units = Integer.parseInt(tu.getText());
                 double discount = Double.parseDouble(td.getText());
                 double total = price*units;
+                double tax = total*8.25/100;
                 //System.out.print(total);
-                Item g = new Item(name,icode,brand,price,units,discount,total);
-                //clothing c = new Item(name,icode,brand,price,units,discount,total);
-                System.out.print("Item: "+g.getItemCode()+" Qty: "+g.getUnits()+" Price: "+g.getTotal()+"\n");
+                Item item = new Item(name,icode,brand,price,units,discount,total);
+                grocery g = new grocery(name,icode,brand,price,units,discount,total);
+                clothing c = new clothing(name,icode,brand,price,units,discount,total,tax);
+                accessories a = new accessories(name,icode,brand,price,units,discount,total,tax);
+                electronics e = new electronics(name,icode,brand,price,units,discount,total,tax);
+                furniture fur = new furniture(name,icode,brand,price,units,discount,total,tax);
+                kitchenutensils ku = new kitchenutensils(name,icode,brand,price,units,discount,total,tax);
+                //System.out.print("Item: "+item.getItemCode()+" Qty: "+item.getUnits()+" Price: "+item.getTotal()+"\n");
                 //Person p = new Person(tn.getText(), Integer.parseInt(ta.getText()));
-                data.add(g); //to make the data available on table
+                data.add(item); //to make the data available on table;
                 tn.clear();
                 tc.clear();
                 tb.clear();
@@ -216,11 +222,23 @@ public class Demo extends Application {
                 String sname = tn2.getText();          // causes fields of the given record to be modified
                 int scode = Integer.parseInt(tc2.getText());
                 String sbrand = tb2.getText();
+                double price = Double.parseDouble(tp.getText());
+                int units = Integer.parseInt(tu.getText());
+                double discount = Double.parseDouble(td.getText());
+                double total = price*units;
+                double tax = total*8.25/100;
+
                 boolean f = false;
                 for (int i = 0; i < tbl.getItems().size(); i++) {
                     if (((String) tbl.getItems().get(i).getName()).equals(sname) && (int) tbl.getItems().get(i).getItemCode()==scode && tbl.getItems().get(i).getBrand().equals(sbrand)) {
-                        Item g = new Item(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),Double.parseDouble(tp2.getText()));
-                        tbl.getItems().set(i, g);
+                        Item item = new Item(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total);
+                        grocery g = new grocery(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total);
+                        clothing c = new clothing(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total,tax);
+                        accessories a = new accessories(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total,tax);
+                        electronics e = new electronics(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total,tax);
+                        furniture fur = new furniture(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total,tax);
+                        kitchenutensils ku = new kitchenutensils(tn2.getText(),Integer.parseInt(tc2.getText()),tb2.getText(),Double.parseDouble(tp2.getText()),Integer.parseInt(tu2.getText()),Double.parseDouble(td2.getText()),total,tax);
+                        tbl.getItems().set(i, item);
                         f = true;
                         if (f) {
                             alerts.setTitle("Success");
@@ -350,15 +368,21 @@ public class Demo extends Application {
         EventHandler<ActionEvent> event8 = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                System.out.println("Your Receipt ");
+                double total = 0;
                 for (int i = 0; i < tbl.getItems().size(); i++){
-                  System.out.println((int)tbl.getItems().get(i).getItemCode()+" "+tbl.getItems().get(i).getName());
-
+                  System.out.println("Item code: "+(int)tbl.getItems().get(i).getItemCode()+", "+"Name: "+tbl.getItems().get(i).getName()+", "+"Price: "+tbl.getItems().get(i).getPrice()+", "+"Qty: "+tbl.getItems().get(i).getUnits()+", "+"Subtotal: "+tbl.getItems().get(i).getTotal());
 
                 }
-
-
-
+                for (int i = 0; i < tbl.getItems().size(); i++){
+                    total += tbl.getItems().get(i).getTotal();
+                }
+                System.out.println("Item Total: "+total);
+                double tax = total*8.25/100;
+                double totalprice = total+tax;
+                System.out.println("Tax: "+tax);
+                System.out.println("Total Price: "+totalprice);
+                
                 //System.out.print(g.getTotal());
                 //data.addAll(Double.parseDouble(tp.getText())*=Integer.parseInt(tu.getText()));
                 /*s.setScene(sc4);

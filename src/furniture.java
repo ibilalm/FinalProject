@@ -3,16 +3,17 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class furniture extends Item {
-    private SimpleIntegerProperty itemcode;
+    /*private SimpleIntegerProperty itemcode;
     private SimpleStringProperty name;
     private SimpleStringProperty brand;
     private SimpleDoubleProperty price;
     private SimpleIntegerProperty units;
-    private SimpleDoubleProperty discount;
+    private SimpleDoubleProperty discount;*/
     private SimpleDoubleProperty tax;
-    public furniture(String n,int ic,String B,double p,int u,double d,double t){ //Constructor
+    public furniture(String n,int ic,String B,double p,int u,double d,double t,double tx){ //Constructor
         super(n,ic,B,p,u,d,t);
-        itemcode=new SimpleIntegerProperty(ic);
+        tax = new SimpleDoubleProperty(tx);
+        /*itemcode=new SimpleIntegerProperty(ic);
         name=new SimpleStringProperty(n);
         brand = new SimpleStringProperty(B);
         price = new SimpleDoubleProperty(p);
@@ -62,10 +63,6 @@ public class furniture extends Item {
         subTotal = ((price.get()*units.get())-computeDiscount());
         return  subTotal;
     }
-    public double computeTax() {
-        return computeSubTotal()*8.25/100;
-    }
-
     public double computeDiscount() {
         return (price.get()*discount.get())*units.get();
     }
@@ -73,7 +70,10 @@ public class furniture extends Item {
         double TotalPrice;
         double tax = computeTax();
         TotalPrice = computeSubTotal()-computeDiscount()+tax;
-        return TotalPrice;
+        return TotalPrice;*/
+    }
+    public double computeTax() {
+        return computeSubTotal()*8.25/100;
     }
 
 }

@@ -3,25 +3,25 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class grocery extends Item {
-    private SimpleIntegerProperty itemcode;
+   /* private SimpleIntegerProperty itemcode;
     private SimpleStringProperty name;
     private SimpleStringProperty brand;
     private SimpleDoubleProperty price;
     private SimpleIntegerProperty units;
     private SimpleDoubleProperty discount;
     private SimpleDoubleProperty total;
-    private SimpleDoubleProperty tax;
+    private SimpleDoubleProperty tax;*/
     public grocery(String n,int ic,String B,double p,int u,double d,double t){ //Constructor
         super(n,ic,B,p,u,d,t);
-        itemcode=new SimpleIntegerProperty(ic);
+        /*itemcode=new SimpleIntegerProperty(ic);
         name=new SimpleStringProperty(n);
         brand = new SimpleStringProperty(B);
         price = new SimpleDoubleProperty(p);
         units = new SimpleIntegerProperty(u);
         discount = new SimpleDoubleProperty(d);
-        total = new SimpleDoubleProperty(t);
+        total = new SimpleDoubleProperty(t);*/
     }
-    public String getName(){
+    /*public String getName(){
         return name.get();
     }//getter
     public int getItemCode(){
@@ -71,10 +71,6 @@ public class grocery extends Item {
         subTotal = ((price.get()*units.get())-computeDiscount());
         return  subTotal;
     }
-    public double computeTax() {
-        return computeSubTotal()*8.25/100;
-    }
-
     public double computeDiscount() {
         return (price.get()*discount.get())*units.get();
     }
@@ -83,7 +79,7 @@ public class grocery extends Item {
         double tax = computeTax();
         TotalPrice = computeSubTotal()-computeDiscount()+tax;
         return TotalPrice;
-    }
+    }*/
 
 
 
