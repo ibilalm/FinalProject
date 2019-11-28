@@ -222,9 +222,9 @@ public class Demo extends Application {
                 String sname = tn2.getText();          // causes fields of the given record to be modified
                 int scode = Integer.parseInt(tc2.getText());
                 String sbrand = tb2.getText();
-                double price = Double.parseDouble(tp.getText());
-                int units = Integer.parseInt(tu.getText());
-                double discount = Double.parseDouble(td.getText());
+                double price = Double.parseDouble(tp2.getText());
+                int units = Integer.parseInt(tu2.getText());
+                double discount = Double.parseDouble(td2.getText());
                 double total = price*units;
                 double tax = total*8.25/100;
 
@@ -272,7 +272,7 @@ public class Demo extends Application {
         };
         ub.setOnAction(event5);
 
-                
+
 
         //Scene3--Delete a row in the table
         GridPane gp = new GridPane();
@@ -407,7 +407,7 @@ public class Demo extends Application {
         s.setScene(sc1);
         s.show();
 
-        
+
     }//end of start
 
 }//end of class
