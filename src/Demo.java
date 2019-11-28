@@ -351,10 +351,8 @@ public class Demo extends Application {
          gp2.setHgap(10);
          gp2.setVgap(10);
          gp2.add(output,3,2);
+
          
-
-
-
          EventHandler<ActionEvent> event7 = new EventHandler<ActionEvent>() {
              @Override
              public void handle(ActionEvent event) {
@@ -382,26 +380,10 @@ public class Demo extends Application {
                 double totalprice = total+tax;
                 System.out.println("Tax: "+tax);
                 System.out.println("Total Price: "+totalprice);
-                
-                //System.out.print(g.getTotal());
-                //data.addAll(Double.parseDouble(tp.getText())*=Integer.parseInt(tu.getText()));
-                /*s.setScene(sc4);
-                s.show();*/
 
             }
         };
         pb.setOnAction(event8);
-
-
-
-
-
-
-
-
-
-
-
 
         ((Group) sc1.getRoot()).getChildren().add(bp);
         s.setScene(sc1);

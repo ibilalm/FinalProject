@@ -2,7 +2,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Item {
+public class Item  {
     private SimpleIntegerProperty itemcode;
     private SimpleStringProperty name;
     private SimpleStringProperty brand;
